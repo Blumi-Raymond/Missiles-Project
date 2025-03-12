@@ -1,0 +1,102 @@
+<!-- דף המוצרים -->
+<!-- מיונים וסינונים -->
+<div class="body">
+    <div class="row">
+        <div class="col-md-4 order-md-1">
+            <div class="filters">
+                <div class="mb-3">
+                    <!-- אם לחוץ על כפתור של 10 המוצרים הראשונים-תציג את הכפתור של כל המוצרים ולהפך -->
+                    @if(allProducts.length!==10){
+                    <button (click)="getTenProduct()" class="btn btn-primary">לעשר המוצרים הזולים</button>
+                    }
+                    @else{
+                    <button (click)="getAllProduct()" class="btn btn-primary">לכל המוצרים</button>
+                    }
+                    <br>
+                    <!--Select כל המיונים-בחירת מיון ע"י  -->
+                    <h3 for="pic">מיון לפי:</h3>
+                    <select (change)="sortSelect()" [(ngModel)]="toSort" name="cat" class="form-control">
+                        <option [value]="-1" disabled selected>מיין לפי</option>
+                        <option [value]="0">ללא מיון</option>
+                        <option [value]="1">מחיר</option>
+                        <option [value]="2">שם המוצר</option>
+                        <option [value]="3">חברה</option>
+                        <option [value]="4">קטגוריה</option>
+                        <option [value]="5">תאריך עדכון אחרון</option>
+                    </select>
+                </div>
+                <!-- סינונים -->
+                <!-- מבצע סינון על סינון וניתן לבחור כמה -->
+                <div class="container mt-3">
+                    <form class="was-validated" #myForm="ngForm" (ngSubmit)="filter()">
+                        <!-- סינון לפי קטגוריות-->
+                        <h3>קטגוריות</h3>
+                        <div class="mb-3">
+                            @for(p of allCategory;track p.id){
+                            <div>
+                                <input type="checkbox" [value]="p.id" (change)="categoryChanged($event, p.id)"
+                                    [id]="'category-' + p.id" />
+                                <label [for]="'category-' + p.id">{{ p.nameCategory }}</label>
+                            </div>
+                            }
+                        </div>
+                        <!-- סינון לפי חברות -->
+                        <h3>חברות</h3>
+                        <div class="mb-3">
+                            @for(p of allCompany;track p.id){
+                            <div>
+                                <input type="checkbox" [value]="p.id" (change)="companyChanged($event, p.id)"
+                                    [id]="'company-' + p.id" />
+                                <label [for]="'company-' + p.id">{{ p.nameCompany }}</label>
+                            </div>
+                            }
+                        </div>
+                        <!-- בחירת סינון לפי מחיר -->
+                        <h3>טווח מחירים</h3>
+                        <div class="mb-3">
+                            <h6></h6>
+                            <input type="minPrice" placeholder="הכנס מספר מינימלי" [(ngModel)]="filters.minPrice"
+                                name="minPrice" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <input type="maxPrice" placeholder="הכנס מספר מקסימלי" [(ngModel)]="filters.maxPrice"
+                                name="maxPrice" class="form-control" />
+                        </div>
+                        <!-- בלחיצה על סינון-כל מי שבחרנו יוצג על המסך -->
+                        <button type="submit" class="btn btn-primary">סינון</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- הצגת המוצרים -->
+        <div class="col-md-8 order-md-0">
+            <div class="product-container">
+                <!-- אם יש מוצרים להציג כרגע -->
+                @if(allProducts.length>0){
+                @for(p of allProducts;track p.id){
+                <div class="product-card" [ngClass]="{'out-of-stock':p.qty==0}">
+                    <div class="product-header">מוצר:{{p.nameProducts}}</div>
+                    <div class="product-body">
+                        <div>קטגוריה:{{p.nameCategory}}</div>
+                        <div>חברה:{{p.nameCompany}}</div>
+                        <div>מחיר:{{p.price}}</div>
+                        <img [src]="'data:image/jpeg;base64,' + p.images" alt="Product Image" class="product-image" />
+                    </div>
+                    <div class="product-footer">
+                        <button (click)="allDetails(p)" class="btn btn-info">לפרטים נוספים</button>
+                        <app-add-remove [p]="p"></app-add-remove>
+                    </div>
+                </div>
+                }
+                }
+                @else{
+                <!-- אם אין מוצרים להציג לדוגמה אחרי סינון מסוים -->
+                <!-- <div class="product-container">
+                    <h1>!אזל מהמלאי</h1>
+                    <h1>...המוצרים בדרך</h1>
+                </div> -->
+                }
+            </div>
+        </div>
+    </div>
+</div>

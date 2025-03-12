@@ -1,0 +1,30 @@
+<!--דף כניסה  -->
+<div class="body">
+    <div class="container mt-5">
+        <h1 class="login-title text-center">כניסה לחשבון שלך</h1>
+        <form class="was-validated" #myForm="ngForm" (ngSubmit)="login()">
+            <div class="mb-3">
+                <!-- שדה האימייל -->
+                <label for="email" class="form-label">:אימייל</label>
+                <input type="email" class="form-control" id="email" placeholder="הכנס אימייל" name="pswd"
+                    [(ngModel)]="user.email" #mail="ngModel" required pattern="[A-Za-z.0-9]+@(gmail.com|co.il|net)">
+                <div class="invalid-feedback">
+                    <p [hidden]="!mail.errors?.['required']">שדה חובה</p>
+                    <p [hidden]="!mail.errors?.['pattern']">מייל לא תקין</p>
+                </div>
+            </div>
+            <!-- שדה הסיסמה-->
+            <div class="mb-3">
+                <label for="password" class="form-label">סיסמה</label>
+                <input type="password" class="form-control" id="password" placeholder="הכנס סיסמא" name="password"
+                    maxlength="10" [(ngModel)]="user.passwordCostomer" #validPassword="ngModel" required
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" >
+                <div class="invalid-feedback">
+                    <p [hidden]="!validPassword.errors?.['required']">שדה חובה</p>
+                    <p [hidden]="!validPassword.errors?.['pattern']">סיסמה שגויה ו/חייב להכיל אות גדולה,אות קטנה ושמונה תווים לפחות</p>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!myForm.valid">התחבר</button>
+        </form>
+    </div>
+</div>

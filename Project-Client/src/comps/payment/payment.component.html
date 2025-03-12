@@ -1,0 +1,21 @@
+<div class="body">
+    <!-- אם  אין עדיין קניה נוכחית תציג את התשלום-->
+    @if(!currentShopping){
+    <h1 class="payment-text">לתשלום: {{ sShoppingCart.ShoppingCartNew!.shopping?.payment }}</h1>
+    <button (click)="payment()" class="payment-btn">לתשלום</button>
+    }
+    @else if( currentShopping){
+    <!-- אם כבר בוצע התשלום-תציג את פרטי התשלום -->
+    <h1 class="success-text">!התשלום בוצע בהצלחה</h1>
+    <h3 class="order-code">קוד ההזמנה שלך הינו: {{currentShopping!.id}}</h3>
+    <h3 class="payment-amount">סך התשלום שחויב הינו: {{currentShopping!.payment}}</h3>
+    <!-- אם יש הערה-לדוג יום הולדת-תציג -->
+    @if(currentShopping.comment){
+    <h3 class="comment">{{currentShopping.comment}}</h3>
+    }
+    }
+    @else{
+    <!-- אם עדיין לא קיים סל -->
+    <h1 class="no-order-text">עדיין לא ביצעת הזמנה</h1>
+    }
+</div>

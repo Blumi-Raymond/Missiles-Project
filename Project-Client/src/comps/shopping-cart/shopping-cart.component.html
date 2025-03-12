@@ -1,0 +1,35 @@
+<!-- דף הסל -->
+<div class="body">
+  <!-- אם כבר קיים סל קניות -נציג את כל המוצרים שבסל -->
+  @if(sShoppingCart.ShoppingCartNew){
+  <div class="product-container">
+    @for(p of sShoppingCart.ShoppingCartNew.products; track p.nameProducts){
+    <div [ngClass]="{'out-of-stock': p.qty == 0}" class="product-card">
+      @if(p.descriptions != undefined){
+      <div class="product-description">תיאור: {{ p.descriptions }}</div>
+      }
+      <div class="product-name">מוצר: {{ p.nameProducts }}</div>
+      <div class="product-category">קטגוריה: {{ p.nameCategory }}</div>
+      <div class="product-company">חברה: {{ p.nameCompany }}</div>
+      <div class="product-price">מחיר מוצר: {{ p.price }}</div>
+      <div class="total-price">מחיר: {{ p.price! * p.qty! }}</div>
+      <div class="product-image">
+        <img [src]="'data:image/jpeg;base64,' + p.images" alt="Product Image" class="small-image" />
+      </div>
+      <div class="product-actions">
+        <button (click)="details(p)" style="cursor: pointer;">לפרטים נוספים</button>
+        <app-add-remove [p]="product(p.id!)!" (count)="p.qty"></app-add-remove>
+        <button (click)="delete(p)" style="cursor: pointer;">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+
+    </div>
+    }
+  </div>
+  }
+  @else{
+  <!-- נציג על המסך אם לא קיים סל קניות -->
+  <h1>⁉️ עדיין אין לך מוצרים בסל למה שלא תוסיף?</h1>
+  }
+</div>

@@ -1,0 +1,60 @@
+<!--דף ההתחברות  -->
+<div class="body">
+    <div class="container mt-5">
+        <h1 class="login-title text-center">התחברות</h1>
+        <form class="was-validated" #myForm="ngForm" (ngSubmit)="register()">
+            <!-- שדה המשתמש -->
+            <div class="mb-3">
+                <label for="uname" class="form-label">:שם משתמש</label>
+                <input type="text" class="form-control" id="uname" placeholder="הכנס שם משתמש" name="uname"
+                    #nameCustomer="ngModel" [(ngModel)]="newUser.nameCustomer" required>
+                <div class="invalid-feedback">
+                    <p [hidden]="!nameCustomer.errors?.['required']">שדה חובה</p>
+                    <p [hidden]="!nameCustomer.errors?.['pattern']">שם באנגלית בלבד, אות גדולה בהתחלה</p>
+                </div>
+            </div>
+            <!-- שדה האימייל -->
+            <div class="mb-3">
+                <label for="email" class="form-label">:אימייל</label>
+                <input type="email" class="form-control" id="email" placeholder="הכנס אימייל" name="pswd"
+                    [(ngModel)]="newUser.email" #mail="ngModel" required pattern="[A-Za-z.0-9]+@(gmail.com|co.il|net)">
+                <div class="invalid-feedback">
+                    <p [hidden]="!mail.errors?.['required']">שדה חובה</p>
+                    <p [hidden]="!mail.errors?.['pattern']">מייל לא תקין ו/קיים במאגר</p>
+                </div>
+            </div>
+            <!-- שדה הסיסמה -->
+            <div class="mb-3">
+                <label for="password" class="form-label">:סיסמה</label>
+                <input type="password" class="form-control" id="password" placeholder="הכנס סיסמה" name="password"
+                    [(ngModel)]="newUser.passwordCostomer" #validPassword="ngModel" required
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                <div class="invalid-feedback">
+                    <p [hidden]="!validPassword.errors?.['required']">שדה חובה</p>
+                    <p [hidden]="!validPassword.errors?.['pattern']">סיסמה שגויה ו/חייב להכיל לפחות אות גדולה,אות קטנה
+                        ותו</p>
+                </div>
+            </div>
+            <!-- שדה הפלאפון -->
+            <div class="mb-3">
+                <label for="cell" class="form-label">:פלאפון</label>
+                <input type="text" class="form-control" id="cell" placeholder="הכנס מספר פלאפון" name="cell"
+                    [(ngModel)]="newUser.cell" #validCell="ngModel" required pattern="^0\d{8,9}$">
+                <div class="invalid-feedback">
+                    <p [hidden]="!validCell.errors?.['required']">שדה חובה</p>
+                    <p [hidden]="!validCell.errors?.['pattern']">מספר שגוי</p>
+                </div>
+            </div>
+            <!-- שדה התאריך -->
+            <div class="mb-3">
+                <label for="date" class="form-label">:תאריך</label>
+                <input type="date" class="form-control" id="date" name="date" required #dateofbirth="ngModel"
+                    [(ngModel)]="newUser.dateOfBirth">
+                <div class="invalid-feedback">
+                    <p [hidden]="!dateofbirth.errors?.['required']">שדה חובה</p>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!myForm.valid">הירשם</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    font-weight: bold;
+
+    background-image: url('../../assets/images/Pershing_II.jpg');
+    /* נתיב לתמונה שלך */
+    background-size: cover;
+    /* זה יגרום לתמונה לכסות את כל העמוד */
+    background-position: center center;
+    /* ממרכז את התמונה */
+    background-attachment: fixed;
+    /* התמונה תישאר במקום בעת גלילה */
+    /* height: 100vh; כדי שהתמונה תכסה את כל העמוד גם כשהדף ארוך */
+    margin: 0;
+    /* לוודא שאין רווחים מסביב */
+    padding-bottom: 10%;
+
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.payment-text,
+.success-text,
+.no-order-text {
+    text-align: center;
+    color: #333;
+}
+
+.payment-btn {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.payment-btn:hover {
+    background-color: #0056b3;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+h3 {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.order-code,
+.payment-amount,
+.comment {
+    color: #555;
+}
+
+.no-order-text {
+    color: #ff5733;
+}

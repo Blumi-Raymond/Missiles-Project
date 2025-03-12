@@ -1,0 +1,106 @@
+.out-of-stock {
+    color: red;
+}
+
+
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    font-weight: bold;
+
+    background-image: url('../../assets/images/Pershing_II.jpg');
+    /* נתיב לתמונה שלך */
+    background-size: cover;
+    /* זה יגרום לתמונה לכסות את כל העמוד */
+    background-position: center center;
+    /* ממרכז את התמונה */
+    background-attachment: fixed;
+    /* התמונה תישאר במקום בעת גלילה */
+    /* height: 100vh; כדי שהתמונה תכסה את כל העמוד גם כשהדף ארוך */
+    margin: 0;
+    /* לוודא שאין רווחים מסביב */
+    padding-bottom: 10%;
+
+}
+
+.product-card-details {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    max-width: 600px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card-details:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-header {
+    background: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    padding: 16px;
+    text-align: center;
+}
+
+.product-body {
+    padding: 16px;
+    text-align: center;
+}
+
+.product-image {
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+}
+
+.product-footer {
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    background: #f8f8f8;
+}
+
+.product-footer button {
+    background-color: #3c4651;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.2s;
+}
+
+.product-footer button:hover {
+    background-color: #3e454d;
+}
+
+.out-of-stock .product-header {
+    background: #ffe6e6;
+    border-bottom: 1px solid #ffcccc;
+}
+
+.product-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    /* כאן הוספתי רווח בין הכפתור לקומפוננטה */
+}
+h2{
+    text-align: center;
+}

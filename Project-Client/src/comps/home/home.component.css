@@ -1,0 +1,107 @@
+.body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    font-weight: bold;
+
+    background-image: url('../../assets/images/spacexarabsat6a_0.jpg');
+    /* נתיב לתמונה שלך */
+    background-size: cover;
+    /* זה יגרום לתמונה לכסות את כל העמוד */
+    background-position: center center;
+    /* ממרכז את התמונה */
+    background-attachment: fixed;
+    /* התמונה תישאר במקום בעת גלילה */
+    /* height: 100vh; כדי שהתמונה תכסה את כל העמוד גם כשהדף ארוך */
+    margin: 0;
+    /* לוודא שאין רווחים מסביב */
+}
+
+/* הגדרת הקונטיינר המרכזי */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.057);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* כותרת ראשית */
+header h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+header p {
+    font-size: 1.2em;
+    color: black;
+}
+
+/* סגנונות עבור כותרות משנה */
+h2.section-title,
+h3 {
+    font-size: 1.8em;
+    color: #092139;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* סגנונות עבור פסקאות */
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* סגנונות עבור רשימות */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-item {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* סגנון כפתורים */
+.btn {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+/* סגנונות עבור כותרות חשובות */
+.important {
+    font-weight: bold;
+    color: #e74c3c;
+    font-size: 1.3em;
+}
+
+/* סגנונות לטקסט סמלי כמו 💥🎯⚡ */
+ul li i {
+    margin-right: 10px;
+}
+
+/* שיפור רווחים וקריאות */
+section {
+    margin-bottom: 40px;
+}

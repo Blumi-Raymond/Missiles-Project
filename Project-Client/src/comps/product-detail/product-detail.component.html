@@ -1,0 +1,22 @@
+<!-- פרטי המוצר -->
+<div class="body">
+    <!-- הצגת פרטי המוצר שהמשתמש לחץ עליו -->
+    <div class="product-card-details" [ngClass]="{'out-of-stock':product.qty==0}">
+        <h2>פרטי המוצר</h2>
+        <div class="product-header">מוצר: {{product.nameProducts}}</div>
+        <div class="product-body">
+            <div>קטגוריה: {{product.nameCategory}}</div>
+            <div>חברה: {{product.nameCompany}}</div>
+            <div>מחיר: {{product.price}}</div>
+            <div>כמות: {{product.qty}}</div>
+            <div>תאריך עדכון אחרון: {{product.lastUpdatedDate}}</div>
+            @if(product.descriptions!=undefined){
+            <div>פרטי מוצר: {{product.descriptions}}</div>}
+            <img [src]="'data:image/jpeg;base64,' + product.images" alt="Product Image" class="product-image" />
+        </div>
+        <div class="product-footer">
+            <button (click)="back()" style="cursor: pointer;">חזרה</button>
+            <app-add-remove [p]="pProduct(product.id!)!" (count)="product.qty"></app-add-remove>
+        </div>
+    </div>
+</div>
