@@ -107,8 +107,7 @@ yarn-error.log*
 dist/
 tmp/
 temp/
-node_modules/
-.vscode/
+
 # Compiled output
 build/
 dist/
